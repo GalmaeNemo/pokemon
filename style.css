@@ -1,3 +1,7 @@
+*{
+  font-family: 'Jua', sans-serif;
+}
+
 body {
     font-family: 'Jua', sans-serif;
     background-color: #ffffff;
@@ -108,17 +112,17 @@ body {
     padding: 4px 15px;
   }
   
-  .remove-image:hover {
+  /* .remove-image:hover {
     background: #c13b2a;
     color: #ffffff;
     transition: all .2s ease;
     cursor: pointer;
-  }
+  } */
   
-  .remove-image:active {
+  /* .remove-image:active {
     border: 0;
     transition: all .2s ease;
-  }
+  } */
   
   .navbar-light .navbar-brand {
     line-height: 1.68;
@@ -138,6 +142,7 @@ body {
     line-height: 1.67;
     text-align: center;
     color: #35465d;
+    font-size: 50px;
   }
   
   .subtitle {
@@ -145,7 +150,25 @@ body {
     text-align: center;
     color: #35465d;
   }
-  
+
+  .midtitle {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .but{
+    width: 110px;
+    margin:auto;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  #result{
+    text-align: center;
+    display: none;
+    margin-bottom: 15%;
+  }
+
   /* On screens that are 600px or less, set the background color to olive */
   @media screen and (max-width: 600px) {
     html {
@@ -192,6 +215,7 @@ body {
   #label-container {
       width: 80%;
       margin: 0 auto;
+      text-align: center;
   }
   .result-message {
       font-size: 2rem;
@@ -202,6 +226,11 @@ body {
       font-size: 1.5rem;
   }
   
+  #maxsimilar {
+    text-align: center;
+    font-size: 80px;
+    margin-top: 30px;
+  }
   
   /* gender */
   input#gender {
