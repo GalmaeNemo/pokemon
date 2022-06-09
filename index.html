@@ -28,7 +28,7 @@
     <div class="midtitle">-Teachable Machine Image Model-</div>
     <div class="but">
         <button type="button" class="btn btn-outline-secondary" onclick="init()">시작</button>
-        <button type="button" class="btn btn-outline-secondary" onclick="predict(), doDisplay(), showimg()">예측</button>
+        <button type="button" class="btn btn-outline-secondary" onclick="predict(), doDisplay()">예측</button>
     </div>
 
     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -45,9 +45,9 @@
         <div class="file-upload-content">
             <img class="file-upload-image" id="face-image" src="#" alt="your image" />
             <div class="image-title-wrap">
-                <button type="button" onclick="removeUpload(), removeImg()" class="btn btn-outline-secondary">
+                <!-- <button type="button" onclick="removeUpload(), removeImg()" class="btn btn-outline-secondary">
                     Remove
-                </button>
+                </button> -->
             </div>
         </div>
     </div>
@@ -129,7 +129,7 @@
             }
         }
         // run the webcam image through the image model
-        var j=0;
+        var j = 0;
         async function predict() {
             // predict can take in an image, video or canvas html element
             var image = document.getElementById('face-image');
@@ -145,6 +145,14 @@
                     j = i;
             }
             document.getElementById("maxsimilar").innerHTML = "당신과 가장 닮은 포켓몬은 " + prediction[j].className;
+            var k = j + 1;
+            var resultImg = document.createElement('img');
+            const imgDiv = document.querySelector('#resultImg');
+            var imgURL = 'img/' + k + '.png';
+            var newDiv = document.createElement("resultImg");
+            resultImg.src = imgURL;
+            resultImg.alt = "포켓몬";
+            imgDiv.appendChild(resultImg);
         }
 
         function doDisplay() {
@@ -152,18 +160,8 @@
             con.style.display = 'block';
         }
 
-        function showimg() {
-            var k=j+1;
-            var resultImg = document.createElement('img');
-            const imgDiv = document.querySelector('#resultImg');
-            var imgURL = 'img/' + k + '.png';
-            resultImg.src = imgURL;
-            resultImg.alt = "포켓몬";
-            imgDiv.appendChild(resultImg);
-        }
-
-        function removeImg(){
-            document.getElementById('result').style.display='none';
+        function removeImg() {
+            document.getElementById('resultImg').remove();
         }
     </script>
 
